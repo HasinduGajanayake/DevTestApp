@@ -19,7 +19,7 @@ export class Connect4 {
       }
 
       if (this.boardMatrix[col].length > 8) {
-          return `${this.boardMatrix[col]}`;
+          return "Column full!";
       }
 
       this.boardMatrix[col].unshift(this.currPlayer);
@@ -28,11 +28,11 @@ export class Connect4 {
 
       if (this.checkWin(col)) {
           this.endOfGame = true;
-          return `Player ${this.currPlayer} wins!${this.boardMatrix[col]}`;
+          return `Player ${this.currPlayer} wins!`;
       }
 
       const message = `Player ${this.currPlayer} has a turn`;
-      this.currPlayer = 3 - this.currPlayer; // Switch to the other player (1 -> 2, 2 -> 1)
+      this.currPlayer = 3 - this.currPlayer; // Switch player
       return message;
   }
 
