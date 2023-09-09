@@ -19,11 +19,11 @@ export class Connect4 {
       }
 
       if (this.boardMatrix[col].length > 8) {
-          return "Column full!";
+          return `${this.boardMatrix[col]}`;
       }
 
       this.boardMatrix[col].unshift(this.currPlayer);
-      this.boardMatrix[col].pop();
+      //this.boardMatrix[col].pop();
 
 
       if (this.checkWin(col)) {
@@ -50,7 +50,7 @@ export class Connect4 {
           return true;
       }
 
-      // vertical check
+      // vertical
       if (this.checkMatrix(col, col, row - 3, row, player)) {
           return true;
       }
@@ -86,7 +86,7 @@ export class Connect4 {
       player: number
   ): boolean {
       for (let col = startCol, row = startRow; col <= endCol && row <= endRow; col++, row++) {
-          if (this.boardMatrix[col][row] === player) {
+          if (this.boardMatrix[col] && this.boardMatrix[col][row] === player) {
               if (col === endCol && row === endRow) {
                   return true;
               }
