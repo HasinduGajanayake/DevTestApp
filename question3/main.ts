@@ -40,37 +40,37 @@ export class Connect4 {
       const row = this.boardMatrix[col].length - 1;
       const player = this.boardMatrix[col][row];
 
-      // Check horizontally
+      // horizontal check
       if (
-          this.checkLine(col - 3, col, 0, 1, player) ||
-          this.checkLine(col - 2, col + 1, 0, 1, player) ||
-          this.checkLine(col - 1, col + 2, 0, 1, player) ||
-          this.checkLine(col, col + 3, 0, 1, player)
+          this.checkMatrix(col - 3, col, 0, 1, player) ||
+          this.checkMatrix(col - 2, col + 1, 0, 1, player) ||
+          this.checkMatrix(col - 1, col + 2, 0, 1, player) ||
+          this.checkMatrix(col, col + 3, 0, 1, player)
       ) {
           return true;
       }
 
-      // Check vertically
-      if (this.checkLine(col, col, row - 3, row, player)) {
+      // vertical check
+      if (this.checkMatrix(col, col, row - 3, row, player)) {
           return true;
       }
 
-      // Check diagonally (from bottom-left to top-right)
+      // from bottom-left to top-right
       if (
-          this.checkLine(col - 3, col, row - 3, row, player) ||
-          this.checkLine(col - 2, col + 1, row - 2, row + 1, player) ||
-          this.checkLine(col - 1, col + 2, row - 1, row + 2, player) ||
-          this.checkLine(col, col + 3, row, row + 3, player)
+          this.checkMatrix(col - 3, col, row - 3, row, player) ||
+          this.checkMatrix(col - 2, col + 1, row - 2, row + 1, player) ||
+          this.checkMatrix(col - 1, col + 2, row - 1, row + 2, player) ||
+          this.checkMatrix(col, col + 3, row, row + 3, player)
       ) {
           return true;
       }
 
-      // Check diagonally (from bottom-right to top-left)
+      // from bottom-right to top-left
       if (
-          this.checkLine(col + 3, col, row - 3, row, player) ||
-          this.checkLine(col + 2, col - 1, row - 2, row + 1, player) ||
-          this.checkLine(col + 1, col - 2, row - 1, row + 2, player) ||
-          this.checkLine(col, col - 3, row, row + 3, player)
+          this.checkMatrix(col + 3, col, row - 3, row, player) ||
+          this.checkMatrix(col + 2, col - 1, row - 2, row + 1, player) ||
+          this.checkMatrix(col + 1, col - 2, row - 1, row + 2, player) ||
+          this.checkMatrix(col, col - 3, row, row + 3, player)
       ) {
           return true;
       }
@@ -78,7 +78,7 @@ export class Connect4 {
       return false;
   }
 
-  private checkLine(
+  private checkMatrix(
       startCol: number,
       endCol: number,
       startRow: number,
