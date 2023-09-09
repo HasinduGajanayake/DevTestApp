@@ -19,7 +19,7 @@ export class Connect4 {
       }
 
       if (this.boardMatrix[col].length > 8) {
-          return `${this.boardMatrix[col]}`;
+          return "Column full!";
       }
 
       this.boardMatrix[col].unshift(this.currPlayer);
