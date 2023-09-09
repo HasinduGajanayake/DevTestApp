@@ -26,7 +26,7 @@ export class Connect4 {
       this.boardMatrix[col].pop();
 
 
-      if (this.checkForWin(col)) {
+      if (this.checkWin(col)) {
           this.endOfGame = true;
           return `Player ${this.currPlayer} wins!${this.boardMatrix[col]}`;
       }
@@ -36,7 +36,7 @@ export class Connect4 {
       return message;
   }
 
-  private checkForWin(col: number): boolean {
+  private checkWin(col: number): boolean {
       const row = this.boardMatrix[col].length - 1;
       const player = this.boardMatrix[col][row];
 
