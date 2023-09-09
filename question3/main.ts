@@ -23,7 +23,7 @@ export class Connect4 {
       }
 
       this.boardMatrix[col].unshift(this.currPlayer);
-      //this.boardMatrix[col].pop();
+      this.boardMatrix[col].pop();
 
 
       if (this.checkWin(col)) {
